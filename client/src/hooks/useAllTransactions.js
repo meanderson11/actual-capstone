@@ -6,22 +6,23 @@ export default function useAllTransactions() {
 
   //accepts an expense object as defined in the Models
   const postTransaction = async (expense) => {
-    //captures the repsonse
+    //captures the response
     const expenses = await axios.post("http://localhost:4001/api/v1/transactions", expense)
     //sets the expense state value to the array of expenses
     setExpenses(expenses.data.data) 
   }
-
-  //example delete 
-  const deleteTransaction = async (id) => {
-      const transactions = await axios.delete(`http://localhost:4001/api/v1/transactions/${id.budgetId}`)
-      setExpenses(transactions.data.data)
-  }
+  
+//example delete 
   // delteFN =(expense)=>{
   //   const id = expense['_id']
   //  axios delete
   //  set expense to response.data.data
   // }
+
+  const deleteTransaction= async (id) => {
+    const transactions= await axios.delete(`http://localhost:4001/api/v1/transactions/${id}`)
+    setExpenses(transactions.data.data)
+  }
 
   useEffect(() => {
     const getAllTransactions = async () => {
@@ -31,5 +32,5 @@ export default function useAllTransactions() {
     getAllTransactions()
   }, [setExpenses]);
 
-  return [expenses, postTransaction, deleteTransaction];
+  return [expenses, postTransaction,deleteTransaction];
 }

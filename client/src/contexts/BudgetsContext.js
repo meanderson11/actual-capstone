@@ -16,11 +16,9 @@ export function useBudgets() {
 
 export const BudgetsProvider = ({ children }) => {
   const [budgets, postBudget, deleteBudget] = useAllBudgets()
-  const [expenses, postTransaction, deleteTransaction] = useAllTransactions();
+  const [expenses, postTransaction, deleteExpense] = useAllTransactions()
 
   function getBudgetExpenses(budgetId) {
-    console.log(budgetId)
-    console.log(expenses)
     const filteredExpenses=expenses.filter(expense => expense.budgetId === budgetId)
     return filteredExpenses
   }
@@ -31,12 +29,10 @@ export const BudgetsProvider = ({ children }) => {
   function addBudget({ name, max }) {
     postBudget({title:name,total:max})
   }
-
   
-  
-  //   setBudgets(prevBudgets => {
-  //     return prevBudgets.filter(budget => budget.id !== id)
-  //   })
+    // setBudgets(prevBudgets => {
+    //   return prevBudgets.filter(budget => budget.id !== id)
+    // })
   // }
   // function deleteExpense({ id }) {
   //   setExpenses(prevExpenses => {
@@ -53,7 +49,7 @@ export const BudgetsProvider = ({ children }) => {
         addExpense,
         addBudget,
         deleteBudget,
-        deleteTransaction,
+        deleteExpense,
       }}
     >
       {children}

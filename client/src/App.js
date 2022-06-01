@@ -33,7 +33,7 @@ function App() {
             Add Expense
           </Button>
         </Stack>
-        <div
+        <section
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
@@ -49,7 +49,7 @@ function App() {
             return (
               <BudgetCard
                 key={budget['_id']}
-                name={budget.titl}
+                name={budget.title}
                 amount={amount}
                 max={budget.total}
                 onAddExpenseClick={() => openAddExpenseModal(budget['_id'])}
@@ -66,7 +66,7 @@ function App() {
             }
           />
           <TotalBudgetCard />
-        </div>
+        </section>
       </Container>
       <AddBudgetModal
         show={showAddBudgetModal}

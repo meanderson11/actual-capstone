@@ -30,7 +30,7 @@ exports.getTransactions = async (req, res, next) => {
   
       
       await Transaction.create(req.body);
-      const transaction = await Transaction
+      const transaction = await Transaction.find()
       return res.status(201).json({
         success: true,
         data: transaction
@@ -57,28 +57,29 @@ exports.getTransactions = async (req, res, next) => {
   // @access  Public
   exports.deleteTransaction = async (req, res, next) => {
     try {
-      console.log(req.params.id)
-      // const transaction = await Transaction.findOne({budgetId: req.params.id});
-      // console.log(transaction)
-      // if(!transaction) {
-      //   return res.status(404).json({
-      //     success: false,
-      //     error: 'No transaction found'
-      //   });
-      // }
+
+      const transaction = await Transaction.findById(req.params.id);
   
-      // await transaction.deleteOne({budgetId: req.params.id});
-;
-      // const transactions = Transaction.find()
+      if(!transaction) {
+        return res.status(404).json({
+          success: false,
+          error: 'No transaction found'
+        });
+      }
+  
+      await transaction.remove();
+      const transactions=await Transaction.find()
+
       return res.status(200).json({
         success: true,
         data: transactions
       });
   
     } catch (err) {
+      console.log(err)
       return res.status(500).json({
         success: false,
-        error: err
+        error: 'Server Error'
       });
     }
   }

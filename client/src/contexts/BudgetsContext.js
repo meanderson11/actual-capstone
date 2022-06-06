@@ -30,16 +30,6 @@ export const BudgetsProvider = ({ children }) => {
     postBudget({title:name,total:max})
   }
   
-    // setBudgets(prevBudgets => {
-    //   return prevBudgets.filter(budget => budget.id !== id)
-    // })
-  // }
-  // function deleteExpense({ id }) {
-  //   setExpenses(prevExpenses => {
-  //     return prevExpenses.filter(expense => expense.id !== id)
-  //   })
-  // }
-
   return (
     <BudgetsContext.Provider
       value={{

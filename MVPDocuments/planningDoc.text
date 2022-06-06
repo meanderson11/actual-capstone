@@ -1,0 +1,29 @@
+Planning Documentation
+For a BUDGET APP
+
+
+MVP
+•	Enter Budget, Enter expense, And it reduces your budget, Then displays your balance
+•	The landing page will be interactive with three.js features
+•	My app will have a react CSS styling and also express and react, javascript
+
+
+Front End
+1.	My app will have at least 5 sematic tags.
+2.	The view will be responsive
+
+Server
+1.	My app will include at least a GET endpoint
+2.	Delete endpoint
+3.	It will at least have a POST endpoint
+4.	Will make front end request of express, mongoDB
+
+
+Database
+1.	My app will have at least 1 table
+2.	Will have foreign keys
+
+
+Presentation
+1.	I will have to discuss its features and demonstrate how my app works and functions.
+2.	Records between 2-3 minutes no less and no more.
